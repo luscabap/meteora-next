@@ -35,7 +35,7 @@ export const Produtos = ({ produtos }) => {
               <div className={styles.preco}>{produto.preco}</div>
               <button
                 className={styles.botao}
-                onClick={() => router.push(`/produto/${produto.id}`)}
+                onClick={() => router.push(`/produto/${produto.slug}`)}
               >
                 Ver mais
               </button>

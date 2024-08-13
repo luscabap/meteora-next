@@ -7,7 +7,7 @@ export function getTodosProdutos() {
 
 export function getProdutoPorSlug(slug) {
   // Encontra o produto pelo slug (neste caso, o ID).
-  const produto = produtos.find((p) => p.id.toString() === slug);
+  const produto = produtos.find((p) => p.slug === slug);
   return produto;
 }
 
