@@ -2,6 +2,7 @@ import styles from "./categorias.module.css";
 import Image from "next/image";
 
 export const Categorias = ({ categorias }) => {
+
   return (
     <section className={styles.categorias}>
       <h2>Busque por categoria:</h2>
