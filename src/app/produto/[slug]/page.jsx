@@ -3,14 +3,18 @@ import Produto from "@/app/components/Produto";
 import { getProdutoPorSlug } from "../../../lib/api";
 
 async function fetchProdutoEspecifico(slug){
-  const res = await fetch(`http://localhost:3000/api/produto/${slug}`);
+  const res = await fetch(`https://gist.githubusercontent.com/luscabap/8aa335daadfad559693b229daa7df5db/raw/a5cf15e340988df87fd2fcf523637e5205fd97e0/gistfile1.txt`);
 
   if (!res.ok){
     throw new Error ("Produto não encontrado");
   }
-  const produto = res.json()
+  const produto = await res.json();
 
-  return produto;
+  const produtoFiltrado = produto.produtos.find(item => item.slug === slug)
+  
+  return {
+    produtoFiltrado: produtoFiltrado
+  };
 }
 
 export default async function ProdutoPage({ params }) {
@@ -20,7 +24,7 @@ export default async function ProdutoPage({ params }) {
 
   return (
     <main className={styles.main}>
-      <Produto produto={produtoFiltrado[0]} />
+      <Produto produto={produtoFiltrado} />
     </main>
   );
 }
